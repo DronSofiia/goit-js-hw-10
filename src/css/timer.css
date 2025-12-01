@@ -1,0 +1,67 @@
+input{
+    border: 1px solid #808080;
+    border-radius: 4px;
+    width: 272px;
+    height: 40px;
+    margin-bottom: 32px;
+}
+
+input:hover{
+    border-color: #4e75ff;
+    outline: none;
+}
+
+button{
+    border-radius: 8px;
+    padding: 8px 16px;
+    width: 75px;
+    height: 40px;
+    background-color: #cfcfcf;
+    outline: none;
+    border: none;
+}
+button:active{
+    background-color: #4e75ff;
+}
+
+.timer{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: row;
+    gap: 24px;
+}
+
+.field{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.value{
+    font-size: 40px;
+    line-height: 1.2;
+    letter-spacing: 0.04em;
+    color: #2e2f42;
+}
+
+.label{
+    font-size: 16px;
+    line-height: 1.5;
+    color: #2e2f42
+}
+
+ .iziToast.message{
+    background-color: #ef4040;
+    width: fit-content;
+    height: 64px; 
+    color: #fff;
+}
+
+
+.iziToast.message .iziToast-message,
+.iziToast.message .iziToast-title,
+.iziToast.message p,
+.iziToast.message strong {
+    color: #fff !important;
+}
+
