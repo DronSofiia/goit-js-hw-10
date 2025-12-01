@@ -1,3 +1,20 @@
+
+
+ .iziToast.message{
+    background-color: #ef4040;
+    width: fit-content;
+    height: 64px; 
+    color: #fff;
+}
+
+
+.iziToast.message .iziToast-message,
+.iziToast.message .iziToast-title,
+.iziToast.message p,
+.iziToast.message strong {
+    color: #fff !important;
+}
+
 input{
     border: 1px solid #808080;
     border-radius: 4px;
@@ -11,23 +28,12 @@ input:hover{
     outline: none;
 }
 
-button{
-    border-radius: 8px;
-    padding: 8px 16px;
-    width: 75px;
-    height: 40px;
-    background-color: #cfcfcf;
-    outline: none;
-    border: none;
-}
-button:active{
-    background-color: #4e75ff;
-}
+
 
 .timer{
     display: flex;
     align-items: flex-start;
-    justify-content: flex-start;
+    justify-content: center;
     flex-direction: row;
     gap: 24px;
 }
@@ -50,18 +56,16 @@ button:active{
     color: #2e2f42
 }
 
- .iziToast.message{
-    background-color: #ef4040;
-    width: fit-content;
-    height: 64px; 
-    color: #fff;
+button[type="button"] {
+    border-radius: 8px;
+    padding: 8px 16px;
+    width: 75px;
+    height: 40px;
+    background-color: #cfcfcf;
+    outline: none;
+    border: none;
 }
 
-
-.iziToast.message .iziToast-message,
-.iziToast.message .iziToast-title,
-.iziToast.message p,
-.iziToast.message strong {
-    color: #fff !important;
+button[type="button"]:active {
+    background-color: #4e75ff;
 }
-
