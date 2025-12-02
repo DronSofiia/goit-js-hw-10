@@ -11,12 +11,18 @@ import "izitoast/dist/css/iziToast.min.css";
 const refs = {
     datePicker: document.querySelector('#datetime-picker'),
     timer: document.querySelector('.timer'),
-    buttonStart: document.querySelector('[data-start]')
+    buttonStart: document.querySelector('[data-start]'),
+    days: document.querySelector('[data-days]'),
+    hours: document.querySelector('[data-hours]'),
+    minutes: document.querySelector('[data-minutes]'),
+    seconds: document.querySelector('[data-seconds]')
+
 };
 
 
 
 let userSelectDate = null; 
+let intervalId = null;
 refs.buttonStart.disabled = true;
 refs.buttonStart.classList.add('is-disabled')
 
@@ -83,25 +89,10 @@ function convertMs(ms) {
   }
 
 function timerMarkup({ days, hours, minutes, seconds }) {
-    return `
-        <div class="timer">
-        <div class="field">
-        <span class="value" data-days>${addLeadingZero(days)}</span>
-        <span class="label">Days</span>
-        </div>
-        <div class="field">
-        <span class="value" data-hours>${addLeadingZero(hours)}</span>
-        <span class="label">Hours</span>
-        </div>
-        <div class="field">
-        <span class="value" data-minutes>${addLeadingZero(minutes)}</span>
-        <span class="label">Minutes</span>
-        </div>
-        <div class="field">
-        <span class="value" data-seconds>${addLeadingZero(seconds)}</span>
-        <span class="label">Seconds</span>
-        </div>
-        </div>`
+    refs.days.textContent = addLeadingZero(days);
+    refs.hours.textContent = addLeadingZero(hours);
+    refs.minutes.textContent = addLeadingZero(minutes);
+    refs.seconds.textContent = addLeadingZero(seconds)
 };
 
 
@@ -109,17 +100,19 @@ refs.buttonStart.addEventListener('click', (e) => {
     refs.buttonStart.disabled = true;
     refs.datePicker.disabled = true;
 
-    const intervalId = setInterval(() => {
+    intervalId = setInterval(() => {
         const currentDate = new Date();
         const diffMS = userSelectDate - currentDate;
 
         if (diffMS <= 0) {
+            clearInterval(intervalId);
+            timerMarkup({days: 0, hours: 0, minutes: 0, seconds: 0 });
             refs.datePicker.disabled = false;
             return;
         }
         const result = convertMs(diffMS);
-        refs.timer.innerHTML = timerMarkup(result);
         
+        timerMarkup(result);
     
 
 
