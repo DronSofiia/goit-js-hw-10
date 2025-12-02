@@ -18,6 +18,10 @@ const refs = {
 
 let userSelectDate = null; 
 refs.buttonStart.disabled = true;
+refs.buttonStart.classList.add('is-disabled')
+
+
+
 
 
 const options = {
@@ -31,6 +35,8 @@ const options = {
             if (selectedDate.getTime() > Date.now()) {
                 userSelectDate = selectedDate;
                 refs.buttonStart.disabled = false;
+               
+                
             } else {
                 iziToast.error({
                     title: "Error",
@@ -101,12 +107,14 @@ function timerMarkup({ days, hours, minutes, seconds }) {
 
 refs.buttonStart.addEventListener('click', (e) => {
     refs.buttonStart.disabled = true;
+    refs.datePicker.disabled = true;
 
     const intervalId = setInterval(() => {
         const currentDate = new Date();
         const diffMS = userSelectDate - currentDate;
 
         if (diffMS <= 0) {
+            refs.datePicker.disabled = false;
             return;
         }
         const result = convertMs(diffMS);

@@ -28,6 +28,11 @@ input:hover{
     outline: none;
 }
 
+input:disabled{
+    border-color: #808080;
+    cursor: none;
+}
+
 
 
 .timer{
@@ -61,11 +66,13 @@ button[type="button"] {
     padding: 8px 16px;
     width: 75px;
     height: 40px;
-    background-color: #cfcfcf;
+    background-color: #4e75ff;
     outline: none;
     border: none;
 }
 
-button[type="button"]:active {
-    background-color: #4e75ff;
+button[type="button"]:disabled {
+    background-color: #cfcfcf;
+    cursor: not-allowed;
 }
+
