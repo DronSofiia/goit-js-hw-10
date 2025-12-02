@@ -1,20 +1,2 @@
-import"./assets/modulepreload-polyfill-B5Qt9EMX.js";/* empty css                      */import{f as u,i as p}from"./assets/vendor-BbbuE1sJ.js";const e={datePicker:document.querySelector("#datetime-picker"),timer:document.querySelector(".timer"),buttonStart:document.querySelector("[data-start]")};let o=null;e.buttonStart.disabled=!0;e.buttonStart.classList.add("is-disabled");const f={enableTime:!0,time_24hr:!0,defaultDate:new Date,minuteIncrement:1,onClose(t){const a=t[0];a.getTime()>Date.now()?(o=a,e.buttonStart.disabled=!1):(p.error({title:"Error",message:"Please choose a date in the future",position:"topRight",backgroundColor:" #ef4040",class:"message",icon:"false"}),e.buttonStart.disabled=!0)}};u(e.datePicker,f);function r(t){return String(t).padStart(2,"0")}function m(t){const i=Math.floor(t/864e5),d=Math.floor(t%864e5/36e5),l=Math.floor(t%864e5%36e5/6e4),c=Math.floor(t%864e5%36e5%6e4/1e3);return{days:i,hours:d,minutes:l,seconds:c}}function b({days:t,hours:a,minutes:s,seconds:n}){return`
-        <div class="timer">
-        <div class="field">
-        <span class="value" data-days>${r(t)}</span>
-        <span class="label">Days</span>
-        </div>
-        <div class="field">
-        <span class="value" data-hours>${r(a)}</span>
-        <span class="label">Hours</span>
-        </div>
-        <div class="field">
-        <span class="value" data-minutes>${r(s)}</span>
-        <span class="label">Minutes</span>
-        </div>
-        <div class="field">
-        <span class="value" data-seconds>${r(n)}</span>
-        <span class="label">Seconds</span>
-        </div>
-        </div>`}e.buttonStart.addEventListener("click",t=>{e.buttonStart.disabled=!0,e.datePicker.disabled=!0,setInterval(()=>{const s=o-new Date;if(s<=0){e.datePicker.disabled=!1;return}const n=m(s);e.timer.innerHTML=b(n)},1e3)});
+import"./assets/modulepreload-polyfill-B5Qt9EMX.js";/* empty css                      */import{f,i as h}from"./assets/vendor-BbbuE1sJ.js";const t={datePicker:document.querySelector("#datetime-picker"),timer:document.querySelector(".timer"),buttonStart:document.querySelector("[data-start]"),days:document.querySelector("[data-days]"),hours:document.querySelector("[data-hours]"),minutes:document.querySelector("[data-minutes]"),seconds:document.querySelector("[data-seconds]")};let d=null,s=null;t.buttonStart.disabled=!0;t.buttonStart.classList.add("is-disabled");const S={enableTime:!0,time_24hr:!0,defaultDate:new Date,minuteIncrement:1,onClose(e){const o=e[0];o.getTime()>Date.now()?(d=o,t.buttonStart.disabled=!1):(h.error({title:"Error",message:"Please choose a date in the future",position:"topRight",backgroundColor:" #ef4040",class:"message",icon:"false"}),t.buttonStart.disabled=!0)}};f(t.datePicker,S);function a(e){return String(e).padStart(2,"0")}function y(e){const c=Math.floor(e/864e5),i=Math.floor(e%864e5/36e5),l=Math.floor(e%864e5%36e5/6e4),m=Math.floor(e%864e5%36e5%6e4/1e3);return{days:c,hours:i,minutes:l,seconds:m}}function u({days:e,hours:o,minutes:r,seconds:n}){t.days.textContent=a(e),t.hours.textContent=a(o),t.minutes.textContent=a(r),t.seconds.textContent=a(n)}t.buttonStart.addEventListener("click",e=>{t.buttonStart.disabled=!0,t.datePicker.disabled=!0,s=setInterval(()=>{const r=d-new Date;if(r<=0){clearInterval(s),u({days:0,hours:0,minutes:0,seconds:0}),t.datePicker.disabled=!1;return}const n=y(r);u(n)},1e3)});
 //# sourceMappingURL=1-timer.js.map
